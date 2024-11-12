@@ -66,9 +66,6 @@ const Navbar = () => {
               <CgMenu color="black" size={30} />
             )}
           </motion.button>
-          {/* <button onClick={() => setToggle(!toggle)}>
-            {toggle ? <IoCloseSharp color="black" size={30} /> : <CgMenu color="black" size={30} />}
-          </button> */}
           <div
             className={`${
               !toggle ? "hidden" : "flex"

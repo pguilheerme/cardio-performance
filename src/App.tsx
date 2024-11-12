@@ -1,7 +1,8 @@
 import { BrowserRouter } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Presentation from "./components/Presentation";
-import About from "./components/About";
+import About from "./components/Food";
+import Food from "./components/About";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
           <Navbar />
           <Presentation />
         </div>
+        <Food />
         <About />
       </div>
     </BrowserRouter>
