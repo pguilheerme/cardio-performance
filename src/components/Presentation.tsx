@@ -40,15 +40,14 @@ const Presentation = () => {
       <div className="sm:hidden flex flex-col items-center justify-around mt-28 absolute gap-14 p-5">
         <div>
           <h1
-            className={`${styles.heroHeadText} text-red-700 flex flex-col items-start justify-center`}
+            className={`${styles.heroHeadText} text-redVine flex flex-col items-start justify-center`}
           >
             Cardio <span className="text-black">Performance</span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-black`}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Non alias
-            sit aspernatur ipsum at labore ullam voluptas qui consequatur nulla
-            aliquid repudiandae nesciunt cupiditate architecto rerum cum,
-            accusantium expedita nam?
+            Informando e conscientizando sobre os riscos das doenças
+            cardiovasculares, oferecendo orientações práticas para prevenção e
+            controle
           </p>
         </div>
         <motion.div
