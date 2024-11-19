@@ -11,6 +11,27 @@ import {
   DialogTrigger,
 } from "./ui/dialog";
 import { Button } from "./ui/button";
+import greens from "../assets/verduras.jpg";
+import fruits from "../assets/frutas.jpeg";
+import vegetables from "../assets/legumes.jpeg";
+import leguminous from "../assets/leguminosas.jpeg";
+import skimmed_milk from "../assets/leite_desnatado.jpeg";
+import natural_skimmed_milk from "../assets/leite_nat_desnatado.jpeg";
+import cereals from "../assets/cereais.jpg";
+import potato from "../assets/batata.jpg";
+import nuts from "../assets/castanhas.jpeg";
+import sweets from "../assets/doces-de-fruta.jpg";
+import flour from "../assets/farinha.jpg";
+import pasta from "../assets/macarrao.jpg";
+import oils from "../assets/oleos.jpg";
+import honey from "../assets/mel.jpg";
+import meat from "../assets/carnes.jpeg";
+import cheese from "../assets/queijos.jpeg";
+import eggs from "../assets/ovos.jpeg";
+import butter from "../assets/manteiga.jpeg";
+import milk_cream from "../assets/creme_de_leite.jpeg";
+import condensed_milk from "../assets/leite_condensado.jpeg";
+import homemade_sweets from "../assets/doces_caseiros.jpeg";
 
 type FoodsProps = {
   name: string;
@@ -35,27 +56,27 @@ const groups = [
     foods: [
       {
         name: "Verduras",
-        photo: "https://cdn-icons-png.flaticon.com/128/5862/5862731.png",
+        photo: greens,
       },
       {
         name: "Frutas",
-        photo: "https://cdn-icons-png.flaticon.com/128/2892/2892338.png",
+        photo: fruits,
       },
       {
         name: "Legumes",
-        photo: "https://cdn-icons-png.flaticon.com/128/5579/5579518.png",
+        photo: vegetables,
       },
       {
         name: "Legumenosas",
-        photo: "https://cdn-icons-png.flaticon.com/128/2224/2224205.png",
+        photo: leguminous,
       },
       {
         name: "Leite desnatado",
-        photo: "https://cdn-icons-png.flaticon.com/128/5579/5579518.png",
+        photo: skimmed_milk,
       },
       {
         name: "Iorgute natural desnatado",
-        photo: "https://cdn-icons-png.flaticon.com/128/5579/5579518.png",
+        photo: natural_skimmed_milk,
       },
     ],
   },
@@ -73,43 +94,35 @@ const groups = [
       },
       {
         name: "Cereais",
-        photo:
-          "https://e7.pngegg.com/pngimages/955/492/png-clipart-banana-powder-fruit-cavendish-banana-banana-yellow-banana-fruit-food-image-file-formats-thumbnail.png",
+        photo: cereals,
       },
       {
         name: "Macarrão",
-        photo:
-          "https://e7.pngegg.com/pngimages/955/492/png-clipart-banana-powder-fruit-cavendish-banana-banana-yellow-banana-fruit-food-image-file-formats-thumbnail.png",
+        photo: pasta,
       },
       {
         name: "Farinha",
-        photo:
-          "https://e7.pngegg.com/pngimages/955/492/png-clipart-banana-powder-fruit-cavendish-banana-banana-yellow-banana-fruit-food-image-file-formats-thumbnail.png",
+        photo: flour,
       },
       {
         name: "Tubérculos cozidos",
-        photo:
-          "https://e7.pngegg.com/pngimages/955/492/png-clipart-banana-powder-fruit-cavendish-banana-banana-yellow-banana-fruit-food-image-file-formats-thumbnail.png",
+        photo: potato,
       },
       {
         name: "Castanhas",
-        photo:
-          "https://e7.pngegg.com/pngimages/955/492/png-clipart-banana-powder-fruit-cavendish-banana-banana-yellow-banana-fruit-food-image-file-formats-thumbnail.png",
+        photo: nuts,
       },
       {
         name: "Doces de frutas simples caseiro",
-        photo:
-          "https://e7.pngegg.com/pngimages/955/492/png-clipart-banana-powder-fruit-cavendish-banana-banana-yellow-banana-fruit-food-image-file-formats-thumbnail.png",
+        photo: sweets,
       },
       {
         name: "Óleos vegetais",
-        photo:
-          "https://e7.pngegg.com/pngimages/955/492/png-clipart-banana-powder-fruit-cavendish-banana-banana-yellow-banana-fruit-food-image-file-formats-thumbnail.png",
+        photo: oils,
       },
       {
         name: "Mel de abelha",
-        photo:
-          "https://e7.pngegg.com/pngimages/955/492/png-clipart-banana-powder-fruit-cavendish-banana-banana-yellow-banana-fruit-food-image-file-formats-thumbnail.png",
+        photo: honey,
       },
     ],
   },
@@ -123,32 +136,37 @@ const groups = [
       {
         name: "Carnes",
         photo:
-          "https://e7.pngegg.com/pngimages/955/492/png-clipart-banana-powder-fruit-cavendish-banana-banana-yellow-banana-fruit-food-image-file-formats-thumbnail.png",
+          meat,
       },
       {
         name: "Queijos",
         photo:
-          "https://e7.pngegg.com/pngimages/955/492/png-clipart-banana-powder-fruit-cavendish-banana-banana-yellow-banana-fruit-food-image-file-formats-thumbnail.png",
+          cheese,
       },
       {
         name: "Creme de leite",
         photo:
-          "https://e7.pngegg.com/pngimages/955/492/png-clipart-banana-powder-fruit-cavendish-banana-banana-yellow-banana-fruit-food-image-file-formats-thumbnail.png",
+          milk_cream,
+      },
+      {
+        name: "Manteiga",
+        photo:
+          butter,
       },
       {
         name: "Leite condensado",
         photo:
-          "https://e7.pngegg.com/pngimages/955/492/png-clipart-banana-powder-fruit-cavendish-banana-banana-yellow-banana-fruit-food-image-file-formats-thumbnail.png",
+          condensed_milk,
       },
       {
         name: "Ovos",
         photo:
-          "https://e7.pngegg.com/pngimages/955/492/png-clipart-banana-powder-fruit-cavendish-banana-banana-yellow-banana-fruit-food-image-file-formats-thumbnail.png",
+          eggs,
       },
       {
         name: "Doces caseiros",
         photo:
-          "https://e7.pngegg.com/pngimages/955/492/png-clipart-banana-powder-fruit-cavendish-banana-banana-yellow-banana-fruit-food-image-file-formats-thumbnail.png",
+          homemade_sweets,
       },
     ],
   },
@@ -162,37 +180,37 @@ const groups = [
       {
         name: "Alimentos prontos congelados",
         photo:
-          "https://e7.pngegg.com/pngimages/955/492/png-clipart-banana-powder-fruit-cavendish-banana-banana-yellow-banana-fruit-food-image-file-formats-thumbnail.png",
+          "https://www.zamora24horas.com/uploads/s1/72/77/55/9/3733647.jpeg",
       },
       {
         name: "Alimentos prontos desidratados",
         photo:
-          "https://e7.pngegg.com/pngimages/955/492/png-clipart-banana-powder-fruit-cavendish-banana-banana-yellow-banana-fruit-food-image-file-formats-thumbnail.png",
+          "https://www.unileverfoodsolutions.com.br/dicas-e-servicos/seu-negocio/alimentos-desidratados/jcr:content/parsys/content/textimage_copy_705642064/image.transform/jpeg-optimized/image.1671001206907.jpg",
       },
       {
         name: "Alimentos em pó",
         photo:
-          "https://e7.pngegg.com/pngimages/955/492/png-clipart-banana-powder-fruit-cavendish-banana-banana-yellow-banana-fruit-food-image-file-formats-thumbnail.png",
+          "https://frootiva.com.br/wp-content/uploads/2024/03/morango-em-po.jpg",
       },
       {
         name: "Embutidos",
         photo:
-          "https://e7.pngegg.com/pngimages/955/492/png-clipart-banana-powder-fruit-cavendish-banana-banana-yellow-banana-fruit-food-image-file-formats-thumbnail.png",
+          "https://wx.mlcdn.com.br/ponzi/production/portaldalu/86401_00.jpg",
       },
       {
         name: "Doces industrializados",
         photo:
-          "https://e7.pngegg.com/pngimages/955/492/png-clipart-banana-powder-fruit-cavendish-banana-banana-yellow-banana-fruit-food-image-file-formats-thumbnail.png",
+          "https://img.portaldobrigadeiro.com.br/images/d-vender-doces-industrializados-na-rua.jpg",
       },
       {
         name: "Biscoitos e salgadinhos de pote",
         photo:
-          "https://e7.pngegg.com/pngimages/955/492/png-clipart-banana-powder-fruit-cavendish-banana-banana-yellow-banana-fruit-food-image-file-formats-thumbnail.png",
+          "https://cdn.awsli.com.br/2500x2500/1400/1400360/produto/55471414/bb1bcc16a7.jpg",
       },
       {
         name: "Refrigerantes",
         photo:
-          "https://e7.pngegg.com/pngimages/955/492/png-clipart-banana-powder-fruit-cavendish-banana-banana-yellow-banana-fruit-food-image-file-formats-thumbnail.png",
+          "https://preview.redd.it/todos-os-refrigerantes-est%C3%A3o-horr%C3%ADveis-v0-2a79uzexe09d1.jpg?width=600&format=pjpg&auto=webp&s=3a621c79bb00a80f4319ee439a4feb5cf2688fad",
       },
     ],
   },
@@ -244,7 +262,9 @@ const GroupsCard = ({
           </div>
           <Dialog>
             <DialogTrigger asChild>
-              <Button className="shadow-md">Ver descrição</Button>
+              <Button className="text-black shadow-md bg-light">
+                Ver descrição
+              </Button>
             </DialogTrigger>
             <DialogContent className="md: w-2/3 rounded-md">
               <DialogHeader>
@@ -299,16 +319,16 @@ const GroupsCard = ({
   );
 };
 
-const About = () => {
+const Food = () => {
   return (
     <section
       id="food"
-      className="flex flex-col md:scroll-m-0 scroll-m-24 px-10 py-40 gap-4 w-full min-h-screen items-center justify-center bg-white"
+      className="flex flex-col md:scroll-m-0 scroll-m-24 px-10 pt-40 gap-4 w-full min-h-screen items-center justify-center bg-white"
     >
-      <h2 className="overflow-hidden text-center scroll-m-20 md:text-7xl text-4xl font-extrabold tracking-tight first:mt-0 items-start justify-center inline-block text-black bg-clip-text">
+      <h2 className="overflow-hidden text-center scroll-m-20 md:text-6xl text-3xl font-extrabold tracking-tight first:mt-0 items-start justify-center inline-block text-black bg-clip-text">
         Alimentação
       </h2>
-      <div className="w-full z-10 bg-gradient-to-r from-lightBrown/95 from-20% via-mediumBrown/95 to-lightBrown/95 to-80% p-4 my-32 mx-10 flex flex-col gap-2 rounded-lg block-zoom">
+      <div className="w-full z-10 bg-lightBrown p-4 py-20 mx-10 flex flex-col gap-2 rounded-lg block-zoom">
         <div className="flex flex-col gap-7">
           <p>
             As doenças cardiovasculares são a principal causa de morte no mundo
@@ -370,4 +390,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Food;

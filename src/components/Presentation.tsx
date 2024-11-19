@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const Presentation = () => {
   return (
-    <section className={`relative w-full h-screen mx-auto bg-cream border-4`}>
+    <section className={`relative w-full h-screen mx-auto bg-cream`}>
       <div
         className={`hidden sm:flex flex-row items-center gap-14 ${styles.paddingX} absolute inset-0 max-w-7xl mx-auto`}
       >
