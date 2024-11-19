@@ -4,8 +4,8 @@ import Presentation from "./components/Presentation";
 import Food from "./components/Food";
 import About from "./components/About";
 import Footer from "./components/Footer";
-import Deseases from "./components/diseases";
 import Workouts from "./components/Wokouts";
+import Diseases from "./components/Diseases";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
           <Navbar />
           <Presentation />
         </div>
-        <Deseases />
+        <Diseases />
         <Workouts />
         <Food />
         <About />

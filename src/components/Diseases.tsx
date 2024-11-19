@@ -5,10 +5,10 @@ import {
   AccordionTrigger,
 } from "./ui/accordion";
 
-const Deseases = () => {
+const Diseases = () => {
   return (
     <section
-      id="deseases"
+      id="diseases"
       className="flex flex-col md:scroll-m-0 scroll-m-24 px-10 pt-40 w-full min-h-screen items-center justify-between bg-white"
     >
       <h2 className="overflow-hidden text-center scroll-m-20 md:text-5xl text-2xl font-extrabold tracking-tight first:mt-0 items-start justify-center inline-block text-black bg-clip-text">
@@ -208,4 +208,4 @@ const Deseases = () => {
   );
 };
 
-export default Deseases;
+export default Diseases;
