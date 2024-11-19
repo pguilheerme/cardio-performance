@@ -8,7 +8,7 @@ const Workouts = () => {
       className="flex flex-col md:scroll-m-0 scroll-m-24 px-10 pt-40 w-full min-h-screen items-center"
     >
       <h2 className="overflow-hidden text-center scroll-m-20 md:text-5xl text-2xl font-extrabold tracking-tight first:mt-0 items-start justify-center inline-block text-black bg-clip-text">
-        Educação e Informação
+        A inatividade física e exercícios
       </h2>
       <div className="flex flex-col items-center justify-center gap-20">
         <div className="md:w-1/2 w-full p-4 mt-32 mx-10 flex flex-col bg-light shadow-md gap-2 rounded-lg text-black">
