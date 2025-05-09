@@ -4,67 +4,75 @@ const About = () => {
   return (
     <section
       id="about"
-      className="flex flex-col md:scroll-m-0 scroll-m-20 pt-10 px-10 gap-4 w-full min-h-screen items-center justify-center bg-cream"
+      className="flex flex-col items-center justify-center py-44 bg-cream"
     >
-      <div className="w-full items-center justify-center py-20">
-        <h1 className={`${styles.heroHeadText} text-black text-center`}>
-          Sobre <span className="text-redVine">Nós</span>
-        </h1>
-        <p className="text-black text-2xl text-center">
-          Somos estudantes de Fisioterapia comprometidos em promover saúde e
-          bem-estar. Criamos este site para informar e conscientizar sobre os
-          riscos das doenças cardiovasculares, oferecendo orientações práticas
-          para prevenção e controle. Com o objetivo de educar e conscientizar
-          sobre os fatores de risco e estilo de vida saudável
-        </p>
-      </div>
-      <div className="flex sm:flex-row flex-col sm:gap-4 gap-28 scroll-m-24 w-full min-h-screen items-center justify-center pb-40">
-        <div className="flex flex-col items-center w-full h-96 gap-5">
-          <h3 className="text-black text-2xl">Explore Nossos Recursos</h3>
-          <ol className="text-black h-full  flex flex-col justify-between">
-            <li className="bg-light shadow-md shadow-redVine rounded-lg sm:py-3 py-2 px-1 text-lg">
-              <span className="text-redVine text-xl font-bold">1.</span> Dicas
-              de prevenção
-            </li>
-            <li className="bg-light shadow-md shadow-redVine rounded-lg sm:py-3 py-2 px-1 text-lg">
-              <span className="text-redVine text-xl font-bold">2.</span>{" "}
-              Exercícios e atividades físicas
-            </li>
-            <li className="bg-light shadow-md shadow-redVine rounded-lg sm:py-3 py-2 px-1 text-lg">
-              <span className="text-redVine text-xl font-bold">3.</span>{" "}
-              Alimentação cardioprotetorao
-            </li>
-            <li className="bg-light shadow-md shadow-redVine rounded-lg sm:py-3 py-2 px-1 text-lg">
-              <span className="text-redVine text-xl font-bold">4.</span> Fatores
-              de risco
-            </li>
-          </ol>
+      <div className="w-[90%] lg:w-[80%] max-w-4xl">
+        {/* Cabeçalho */}
+        <div className="text-center mb-16">
+          <h1 className={`${styles.heroHeadText} text-black mb-6`}>
+            Conheça <span className="text-red1">Nosso Projeto</span>
+          </h1>
+          <p className="text-black text-xl md:text-2xl leading-relaxed">
+            Somos estudantes de Fisioterapia apaixonados por promover saúde e
+            bem-estar. Criamos este espaço para compartilhar conhecimento sobre
+            prevenção de doenças cardiovasculares com informações acessíveis e
+            práticas.
+          </p>
         </div>
-        <div className="sm:flex sm:flex-col flex md: flex-row justify-center items-center mt-5">
-          <div className="w-5 h-5 rounded-full bg-redVine" />
-          <div className="sm:h-96 lg:w-1 sm: md:w-1 w-60 h-1 bg-redVine" />
-          <div className="w-5 h-5 rounded-full bg-redVine" />
+
+        <div className="flex flex-col md:flex-row items-center justify-between gap-10">
+          <div className="bg-white p-8 rounded-xl shadow-md w-full lg:h-[300px] h-[350px]">
+            <h3 className="text-2xl font-semibold text-black mb-6 text-center">
+              O Que Oferecemos
+            </h3>
+            <ul className="space-y-4">
+              {[
+                "Dicas práticas de prevenção",
+                "Orientações sobre exercícios físicos",
+                "Informações sobre alimentação saudável",
+                "Detalhes sobre fatores de risco",
+              ].map((item, index) => (
+                <li key={index} className="flex items-start">
+                  <span className="text-redVine text-xl font-bold mr-3">
+                    {index + 1}.
+                  </span>
+                  <span className="text-lg text-black">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="hidden md:flex flex-col items-center">
+            <div className="w-1 h-40 bg-redVine rounded-full" />
+          </div>
+
+          <div className="bg-white p-8 rounded-xl shadow-md w-full lg:h-[300px] h-[350px]">
+            <h3 className="text-2xl font-semibold text-black mb-6 text-center">
+              Nossa Missão
+            </h3>
+            <ul className="space-y-4">
+              {[
+                "Reduzir riscos cardiovasculares",
+                "Promover hábitos saudáveis",
+                "Educar e conscientizar",
+                "Apoiar sua saúde integral",
+              ].map((item, index) => (
+                <li key={index} className="flex items-start">
+                  <span className="text-redVine text-xl font-bold mr-3">
+                    {index + 1}.
+                  </span>
+                  <span className="text-lg text-black">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-        <div className="flex flex-col items-center w-full h-96 gap-5">
-          <h3 className="text-black text-2xl">Nossos Objetivos</h3>
-          <ol className="text-black h-full  flex flex-col justify-between">
-            <li className="bg-light shadow-md shadow-redVine rounded-lg sm:py-3 py-2 px-1 text-lg">
-              <span className="text-redVine text-xl font-bold">1.</span> Reduzir
-              riscos de doenças cardiovasculares
-            </li>
-            <li className="bg-light shadow-md shadow-redVine rounded-lg sm:py-3 py-2 px-1 text-lg">
-              <span className="text-redVine text-xl font-bold">2.</span>{" "}
-              Promover estilo de vida saudável
-            </li>
-            <li className="bg-light shadow-md shadow-redVine rounded-lg sm:py-3 py-2 px-1 text-lg">
-              <span className="text-redVine text-xl font-bold">3.</span>{" "}
-              Fomentar conscientização e educação
-            </li>
-            <li className="bg-light shadow-md shadow-redVine rounded-lg sm:py-3 py-2 px-1 text-lg">
-              <span className="text-redVine text-xl font-bold">4.</span> Apoiar
-              saúde cardiovascular
-            </li>
-          </ol>
+
+        <div className="mt-16 text-center">
+          <p className="text-black text-xl italic">
+            Estamos aqui para caminhar junto com você rumo a uma vida mais
+            saudável!
+          </p>
         </div>
       </div>
     </section>

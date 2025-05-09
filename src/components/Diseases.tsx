@@ -1,208 +1,224 @@
 import {
+  FaHeart,
+  FaBrain,
+  FaTachometerAlt,
+  FaHeartbeat,
+  FaProcedures,
+} from "react-icons/fa";
+import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "./ui/accordion";
+import { motion } from "framer-motion";
 
 const Diseases = () => {
   return (
     <section
       id="diseases"
-      className="flex flex-col md:scroll-m-0 scroll-m-24 px-10 pt-40 w-full min-h-screen items-center justify-between bg-white"
+      className="flex flex-col items-center py-44 px-4 sm:px-6 bg-gradient-to-b from-white to-gray-50"
     >
-      <h2 className="overflow-hidden text-center scroll-m-20 md:text-5xl text-2xl font-extrabold tracking-tight first:mt-0 items-start justify-center inline-block text-black bg-clip-text">
-        Educação e Informação
-      </h2>
-      <div className="md:w-1/2 w-full z-10 p-4 my-32 mx-10 flex flex-col bg-light shadow-md gap-2 rounded-lg block-zoom text-black">
-        <div className="flex flex-col gap-7">
-          <p>
-            As doenças cardiovasculares são um conjunto de condições que afetam
-            o coração e os vasos sanguíneos, representando uma das principais
-            causas de morbidade e mortalidade em todo o mundo.
-          </p>
-          <p>
-            De acordo com a Organização Mundial da Saúde (OMS), as DCVs são
-            responsáveis por mais de 17,9 milhões de mortes por ano, o que
-            corresponde a 31% do total de óbitos globais.
-          </p>
-        </div>
-      </div>
-      <div className="sm:flex sm:flex-col flex md:flex-row justify-center items-center mt-5 gap-5">
-        <div className="flex flex-col items-center w-full h-96 gap-5">
-          <h3 className="text-black text-2xl text-center font-bold">
-            Tipos de Doenças Cardiovasculares
+      <div className="w-full max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <div className="inline-flex items-center justify-center bg-red-100 px-6 py-2 rounded-full mb-4">
+            <span className="text-red-600 font-medium">
+              Saúde Cardiovascular
+            </span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Educação e Informação sobre Doenças Cardiovasculares
+          </h2>
+          <div className="bg-white p-8 rounded-xl shadow-md max-w-4xl mx-auto">
+            <p className="text-lg text-gray-700 leading-relaxed">
+              As doenças cardiovasculares são um conjunto de condições que
+              afetam o coração e os vasos sanguíneos, representando uma das
+              principais causas de morbidade e mortalidade em todo o mundo.
+            </p>
+            <p className="text-lg text-gray-700 leading-relaxed mt-4">
+              De acordo com a Organização Mundial da Saúde (OMS), as DCVs são
+              responsáveis por mais de 17,9 milhões de mortes por ano, o que
+              corresponde a 31% do total de óbitos globais.
+            </p>
+          </div>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="mb-20"
+        >
+          <h3 className="text-3xl font-bold text-center text-gray-900 mb-8">
+            <span className="border-b-2 border-red-600 pb-1">
+              Tipos de Doenças Cardiovasculares
+            </span>
           </h3>
-          <ol className="text-black h-full w-full flex flex-col justify-between">
-            <Accordion type="single" collapsible className="w-full">
-              <AccordionItem value="item-1">
-                <AccordionTrigger className="text-redVine text-lg font-bold">
-                  Doença Coronária
+
+          <Accordion
+            type="single"
+            collapsible
+            className="w-full max-w-2xl mx-auto"
+          >
+            {[
+              {
+                icon: <FaHeart className="text-red-600" size={20} />,
+                title: "Doença Coronária",
+                content:
+                  "Afeta as artérias coronárias, reduzindo o fluxo sanguíneo para o coração",
+              },
+              {
+                icon: <FaBrain className="text-red-600" size={20} />,
+                title: "Acidente Vascular Cerebral (AVC)",
+                content:
+                  "Ocorre quando o fluxo sanguíneo para o cérebro é interrompido",
+              },
+              {
+                icon: <FaTachometerAlt className="text-red-600" size={20} />,
+                title: "Hipertensão",
+                content:
+                  "Pressão arterial elevada, que pode danificar vasos sanguíneos e órgãos",
+              },
+              {
+                icon: <FaHeartbeat className="text-red-600" size={20} />,
+                title: "Insuficiência Cardíaca",
+                content:
+                  "O coração não consegue bombear sangue suficiente para atender às necessidades do corpo",
+              },
+              {
+                icon: <FaProcedures className="text-red-600" size={20} />,
+                title: "Arritmias",
+                content: "Anormalidades no ritmo cardíaco",
+              },
+            ].map((item, index) => (
+              <AccordionItem key={`item-${index}`} value={`item-${index}`}>
+                <AccordionTrigger className="text-red-600 py-3 rounded-lg">
+                  <div className="flex items-center gap-3">
+                    {item.icon}
+                    <span className="text-lg font-medium text-gray-900">
+                      {item.title}
+                    </span>
+                  </div>
                 </AccordionTrigger>
-                <AccordionContent>
-                  Afeta as artérias coronárias, reduzindo o fluxo sanguíneo para
-                  o coração
+                <AccordionContent className="px-4 py-3 text-gray-700">
+                  {item.content}
                 </AccordionContent>
               </AccordionItem>
-              <AccordionItem value="item-2">
-                <AccordionTrigger className="text-redVine text-lg font-bold">
-                  Acidente Vascular Cerebral (AVC)
-                </AccordionTrigger>
-                <AccordionContent>
-                  Ocorre quando o fluxo sanguíneo para o cérebro é interrompido
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="item-3">
-                <AccordionTrigger className="text-redVine text-lg font-bold">
-                  Hipertensão
-                </AccordionTrigger>
-                <AccordionContent>
-                  Pressão arterial elevada, que pode danificar vasos sanguíneos
-                  e órgãos
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="item-4">
-                <AccordionTrigger className="text-redVine text-lg font-bold">
-                  Insuficiência Cardíaca
-                </AccordionTrigger>
-                <AccordionContent>
-                  O coração não consegue bombear sangue suficiente para atender
-                  às necessidades do corpo
-                </AccordionContent>
-              </AccordionItem>
-              <AccordionItem value="item-5">
-                <AccordionTrigger className="text-redVine text-lg font-bold">
-                  Arritmias
-                </AccordionTrigger>
-                <AccordionContent>
-                  Anormalidades no ritmo cardíaco
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-          </ol>
-        </div>
-      </div>
-      <div className="flex sm:flex-row flex-col scroll-m-24 w-full min-h-screen items-center justify-center">
-        <div className="sm:flex sm:flex-col flex md:flex-row justify-center items-start gap-5">
-          <div className="hidden sm:flex sm:flex-col md:flex flex-row justify-center items-center">
-            <div className="w-5 h-5 rounded-full bg-redVine" />
-            <div className="sm:h-[35rem] lg:w-1 md:w-1 redVine-gradient" />
-          </div>
-          <div className="flex flex-col items-center w-full h-96 gap-5">
-            <h3 className="text-black text-2xl text-center font-bold">
+            ))}
+          </Accordion>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+          className="mb-20"
+        >
+          <h3 className="text-3xl font-bold text-center text-gray-900 mb-8">
+            <span className="border-b-2 border-red-600 pb-1">
               Fatores de Risco
-            </h3>
-            <ol className="text-black h-full  flex flex-col justify-between gap-5">
-              <li className="bg-light shadow-md rounded-lg sm:py-3 py-2 px-3 text-lg">
-                <span className="text-redVine text-xl font-bold">1. </span>
-                Idade: Risco aumenta após os 45 anos.
-              </li>
-              <li className="bg-light shadow-md rounded-lg sm:py-3 py-2 px-3 text-lg">
-                <span className="text-redVine text-xl font-bold">2. </span>
-                Sexo: Homens têm maior risco do que mulheres.
-              </li>
-              <li className="bg-light shadow-md rounded-lg sm:py-3 py-2 px-3 text-lg">
-                <span className="text-redVine text-xl font-bold">3. </span>
-                História Familiar: Antecedentes familiares de DCVs.
-              </li>
-              <li className="bg-light shadow-md rounded-lg sm:py-3 py-2 px-3 text-lg">
-                <span className="text-redVine text-xl font-bold">4. </span>
-                Tabagismo: Fumo aumenta risco de DCVs.
-              </li>
-              <li className="bg-light shadow-md rounded-lg sm:py-3 py-2 px-3 text-lg">
-                <span className="text-redVine text-xl font-bold">5. </span>
-                Obesidade: Sobrepeso e obesidade aumentam risco.
-              </li>
-              <li className="bg-light shadow-md rounded-lg sm:py-3 py-2 px-3 text-lg">
-                <span className="text-redVine text-xl font-bold">6. </span>
-                Diabetes: Condição metabólica que aumenta risco.
-              </li>
-              <li className="bg-light shadow-md rounded-lg sm:py-3 py-2 px-3 text-lg">
-                <span className="text-redVine text-xl font-bold">7. </span>
-                Colesterol Elevado: Níveis elevados de colesterol LDL.
-              </li>
-            </ol>
+            </span>
+          </h3>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {[
+              "Idade: Risco aumenta após os 45 anos",
+              "Sexo: Homens têm maior risco do que mulheres",
+              "História Familiar: Antecedentes familiares de DCVs",
+              "Tabagismo: Fumo aumenta risco de DCVs",
+              "Obesidade: Sobrepeso e obesidade aumentam risco",
+              "Diabetes: Condição metabólica que aumenta risco",
+              "Colesterol Elevado: Níveis elevados de colesterol LDL",
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ scale: 1.02 }}
+                className="bg-white p-4 rounded-xl shadow-sm border border-gray-100"
+              >
+                <div className="flex items-start">
+                  <div className="bg-red-100 text-red-600 rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
+                    {index + 1}
+                  </div>
+                  <span className="text-gray-800">{item}</span>
+                </div>
+              </motion.div>
+            ))}
           </div>
-        </div>
-      </div>
-      <div className="flex items-center justify-center flex-col md:py-0 pt-44 gap-5">
-        <h2 className="overflow-hidden text-center scroll-m-20 md:text-3xl text-2xl font-extrabold tracking-tight first:mt-0 items-start justify-center inline-block text-black bg-clip-text">
-          Controle de estresse
-        </h2>
-        <div className="md:w-1/2 w-full z-10 p-4 mb-10 mx-10 flex flex-col bg-light shadow-md gap-2 rounded-lg text-black">
-          <div className="flex flex-col gap-7">
-            <p>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6 }}
+        >
+          <h3 className="text-3xl font-bold text-center text-gray-900 mb-8">
+            <span className="border-b-2 border-red-600 pb-1">
+              Controle de Estresse
+            </span>
+          </h3>
+
+          <div className="bg-white p-8 rounded-xl shadow-md max-w-4xl mx-auto mb-10">
+            <p className="text-lg text-gray-700 leading-relaxed">
               O estresse crônico é um fator de risco significativo para doenças
               cardiovasculares, afetando milhões de pessoas mundialmente. O
               estresse afeta o coração, vasos sanguíneos e sistema nervoso,
               aumentando o risco de DCVs.
             </p>
           </div>
-        </div>
-        <h2 className="overflow-hidden text-center scroll-m-20 md:text-2xl text-1xl font-extrabold tracking-tight first:mt-0 items-start justify-center inline-block text-black bg-clip-text">
-          Efeitos do Estresse nas Doenças Cardiovasculares
-        </h2>
-        <ol className="text-black h-full pb-10 flex flex-col justify-between gap-5">
-          <li className="bg-light shadow-md rounded-lg sm:py-3 py-2 px-3 text-lg">
-            <span className="text-redVine text-xl font-bold">
-              Aumento da Pressão Arterial:
-            </span>{" "}
-            O estresse crônico eleva a pressão arterial, aumentando o risco de
-            hipertensão
-          </li>
-          <li className="bg-light shadow-md rounded-lg sm:py-3 py-2 px-3 text-lg">
-            <span className="text-redVine text-xl font-bold">Inflamação: </span>{" "}
-            O estresse crônico causa inflamação, danificando vasos sanguíneos e
-            aumentando o risco de aterosclerose
-          </li>
-          <li className="bg-light shadow-md rounded-lg sm:py-3 py-2 px-3 text-lg">
-            <span className="text-redVine text-xl font-bold">
-              Alterações no Metabolismo:
-            </span>{" "}
-            O estresse crônico afeta o metabolismo, aumentando o risco de
-            obesidade e diabetes
-          </li>
-          <li className="bg-light shadow-md rounded-lg sm:py-3 py-2 px-3 text-lg">
-            <span className="text-redVine text-xl font-bold">
-              Desequilíbrio Hormonal:
-            </span>{" "}
-            O estresse crônico altera os níveis de hormônios, como cortisol e
-            adrenalina, afetando a saúde cardiovascular
-          </li>
-        </ol>
-        <h2 className="overflow-hidden text-center scroll-m-20 md:text-2xl text-1xl font-extrabold tracking-tight first:mt-0 items-start justify-center inline-block text-black bg-clip-text">
-          Estratégias para Controle de Estresse
-        </h2>
-        <ol className="text-black h-full pb-10 flex flex-col justify-between gap-5">
-          <li className="bg-light shadow-md rounded-lg sm:py-3 py-2 px-3 text-lg">
-            <span className="text-redVine text-xl font-bold">
-              Exercícios Físicos:
-            </span>{" "}
-            Exercícios regulares reduzem o estresse e melhoram a saúde
-            cardiovascular
-          </li>
-          <li className="bg-light shadow-md rounded-lg sm:py-3 py-2 px-3 text-lg">
-            <span className="text-redVine text-xl font-bold">
-              Meditação e Relaxamento:
-            </span>{" "}
-            Técnicas de meditação e relaxamento, como yoga e respiração
-            profunda, reduzem o estresse
-          </li>
-          <li className="bg-light shadow-md rounded-lg sm:py-3 py-2 px-3 text-lg">
-            <span className="text-redVine text-xl font-bold">
-              Terapia Cognitivo-Comportamental:
-            </span>{" "}
-            Terapia cognitivocomportamental ajuda a gerenciar o estresse e mudar
-            padrões de pensamento negativos
-          </li>
-          <li className="bg-light shadow-md rounded-lg sm:py-3 py-2 px-3 text-lg">
-            <span className="text-redVine text-xl font-bold">
-              Suporte Social:
-            </span>{" "}
-            Suporte social de amigos, familiares e grupos de apoio ajuda a
-            reduzir o estresse
-          </li>
-        </ol>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <div>
+              <h4 className="text-2xl font-semibold text-gray-900 mb-6 text-center">
+                Efeitos do Estresse
+              </h4>
+              <div className="space-y-4">
+                {[
+                  "Aumento da Pressão Arterial: O estresse crônico eleva a pressão arterial",
+                  "Inflamação: Causa inflamação, danificando vasos sanguíneos",
+                  "Alterações no Metabolismo: Aumenta risco de obesidade e diabetes",
+                  "Desequilíbrio Hormonal: Altera cortisol e adrenalina",
+                ].map((item, index) => (
+                  <div key={index} className="bg-red-50 p-4 rounded-lg">
+                    <div className="flex items-start">
+                      <div className="bg-red-600 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0 text-sm">
+                        {index + 1}
+                      </div>
+                      <span className="text-gray-800">{item}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h4 className="text-2xl font-semibold text-gray-900 mb-6 text-center">
+                Estratégias de Controle
+              </h4>
+              <div className="space-y-4">
+                {[
+                  "Exercícios Físicos: Reduzem o estresse e melhoram a saúde cardiovascular",
+                  "Meditação e Relaxamento: Técnicas como yoga e respiração profunda",
+                  "Terapia Cognitivo-Comportamental: Ajuda a gerenciar o estresse",
+                  "Suporte Social: Amigos e familiares ajudam a reduzir o estresse",
+                ].map((item, index) => (
+                  <div key={index} className="bg-green-100/90 p-4 rounded-lg">
+                    <div className="flex items-start">
+                      <div className="bg-green-600 text-white rounded-full w-6 h-6 flex items-center justify-center mr-3 flex-shrink-0 text-sm">
+                        {index + 1}
+                      </div>
+                      <span className="text-gray-800">{item}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

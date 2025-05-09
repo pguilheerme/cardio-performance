@@ -4,12 +4,14 @@ import { motion } from "framer-motion";
 
 const Presentation = () => {
   return (
-    <section className={`relative w-full h-screen mx-auto bg-cream`}>
+    <section
+      className={`w-full lg:py-40 py-20 h-[900px] lg:h-[1050px] bg-cream`}
+    >
       <div
         className={`hidden sm:flex flex-row items-center gap-14 ${styles.paddingX} absolute inset-0 max-w-7xl mx-auto`}
       >
         <div>
-          <h1 className={`${styles.heroHeadText} text-redVine`}>
+          <h1 className={`${styles.heroHeadText} text-red1`}>
             Cardio <span className="text-black">Performance</span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-black`}>
@@ -40,7 +42,7 @@ const Presentation = () => {
       <div className="sm:hidden flex flex-col items-center justify-around mt-28 absolute gap-14 p-5">
         <div>
           <h1
-            className={`${styles.heroHeadText} text-redVine flex flex-col items-start justify-center`}
+            className={`${styles.heroHeadText} text-red1 flex flex-col items-start justify-center`}
           >
             Cardio <span className="text-black">Performance</span>
           </h1>
@@ -52,10 +54,10 @@ const Presentation = () => {
         </div>
         <motion.div
           animate={{
-            scale: [1, 1.2, 1],
+            scale: [1, 1.1, 1],
           }}
           transition={{
-            duration: 5,
+            duration: 20,
             repeat: Infinity,
             repeatType: "loop",
           }}

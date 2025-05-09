@@ -5,6 +5,7 @@ import {
 } from "@/components/ui/carousel";
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogHeader,
   DialogTitle,
@@ -32,6 +33,7 @@ import butter from "../assets/manteiga.jpeg";
 import milk_cream from "../assets/creme_de_leite.jpeg";
 import condensed_milk from "../assets/leite_condensado.jpeg";
 import homemade_sweets from "../assets/doces_caseiros.jpeg";
+import { X } from "lucide-react";
 
 type FoodsProps = {
   name: string;
@@ -42,7 +44,6 @@ interface GroupsCardProps {
   title: string;
   subDescription: string;
   description: string;
-  alt: boolean;
   foods: FoodsProps[];
 }
 
@@ -135,38 +136,31 @@ const groups = [
     foods: [
       {
         name: "Carnes",
-        photo:
-          meat,
+        photo: meat,
       },
       {
         name: "Queijos",
-        photo:
-          cheese,
+        photo: cheese,
       },
       {
         name: "Creme de leite",
-        photo:
-          milk_cream,
+        photo: milk_cream,
       },
       {
         name: "Manteiga",
-        photo:
-          butter,
+        photo: butter,
       },
       {
         name: "Leite condensado",
-        photo:
-          condensed_milk,
+        photo: condensed_milk,
       },
       {
         name: "Ovos",
-        photo:
-          eggs,
+        photo: eggs,
       },
       {
         name: "Doces caseiros",
-        photo:
-          homemade_sweets,
+        photo: homemade_sweets,
       },
     ],
   },
@@ -221,91 +215,81 @@ const GroupsCard = ({
   subDescription,
   description,
   foods,
-  alt = false,
 }: GroupsCardProps) => {
+  const colorMap = {
+    Verde: "text-green-600",
+    Amarelo: "text-amber-500",
+    Azul: "text-blue-500",
+    Vermelho: "text-rose-500",
+  };
+
+  const bgColorMap = {
+    Verde: "bg-green-50",
+    Amarelo: "bg-amber-50",
+    Azul: "bg-blue-50",
+    Vermelho: "bg-rose-50",
+  };
+
   return (
-    <div
-      className={`flex ${
-        alt ? "flex-row-reverse" : "flex-row"
-      } flex-wrap justify-center items-center w-full snap-center snap-always`}
-    >
+    <div className={`flex flex-col justify-center items-center w-full`}>
       <div
-        className={`sm: w-5/12 md:w-1/2 lg:w-1/2 flex flex-col gap-4 p-4 ${
-          !alt
-            ? "left-fade items-start text-left"
-            : "right-fade items-end text-right"
-        } z-10 shadow-lg rounded-lg bg-light`}
+        className={`w-full flex flex-col gap-6 p-6 ${
+          bgColorMap[title as keyof typeof bgColorMap]
+        } rounded-xl shadow-sm border border-gray-100`}
       >
-        <div
-          className={`flex flex-col gap-2 ${alt ? "items-end" : "items-start"}`}
-        >
-          <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight text-black">
+        <div className="flex flex-col gap-2">
+          <h3 className="text-2xl font-medium tracking-tight text-gray-800">
             Grupo{" "}
-            {title === "Verde" ? (
-              <span className="text-green-600">Verde</span>
-            ) : title === "Amarelo" ? (
-              <span className="text-yellow-600">Amarelo</span>
-            ) : title === "Azul" ? (
-              <span className="text-blue-600">Azul</span>
-            ) : title === "Vermelho" ? (
-              <span className="text-red-600">Vermelho</span>
-            ) : (
-              ""
-            )}
+            <span className={colorMap[title as keyof typeof colorMap]}>
+              {title}
+            </span>
           </h3>
         </div>
-        <div>
-          <div>
-            <p className="leading-7 py-5 text-lg [&:not(:first-child)]:mt-1 text-black">
-              {subDescription}
-            </p>
-          </div>
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button className="text-black shadow-md bg-light">
-                Ver descrição
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="md: w-2/3 rounded-md">
-              <DialogHeader>
-                <DialogTitle>Descrição</DialogTitle>
-              </DialogHeader>
-              <div>
-                <p
-                  className={`leading-5 [&:not(:first-child)]:mt-1 ${
-                    title === "Verde"
-                      ? "text-green-300/80"
-                      : title === "Amarelo"
-                      ? "text-yellow-300/80"
-                      : title === "Azul"
-                      ? "text-blue-300/80"
-                      : title === "Vermelho"
-                      ? "text-red-300/80"
-                      : ""
-                  }`}
-                >
-                  {description}
-                </p>
-              </div>
-            </DialogContent>
-          </Dialog>
-        </div>
 
-        <div className="flex flex-row w-full">
+        <p className="text-gray-600 leading-relaxed">{subDescription}</p>
+
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button
+              variant="outline"
+              className="w-fit text-gray-700 hover:bg-white"
+            >
+              Ver descrição completa
+            </Button>
+          </DialogTrigger>
+          <DialogContent className="bg-white max-w-2xl rounded-lg ">
+            <DialogHeader>
+              <DialogTitle
+                className={`${colorMap[title as keyof typeof colorMap]}`}
+              >
+                Grupo {title}
+              </DialogTitle>
+            </DialogHeader>
+            <p className="text-gray-600 leading-relaxed">{description}</p>
+            <DialogClose className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
+              <X className="h-4 w-4 text-black" />
+              <span className="sr-only">Fechar</span>
+            </DialogClose>
+          </DialogContent>
+        </Dialog>
+
+        <div className="mt-4">
           <Carousel className="w-full">
-            <CarouselContent className="flex flex-row p-5 ">
+            <CarouselContent className="-ml-1">
               {foods.map((food, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                  <div className="border-3 rounded-lg shadow-lg flex items-center justify-center flex-col">
+                <CarouselItem
+                  key={index}
+                  className="pl-4 basis-1/2 md:basis-1/3"
+                >
+                  <div className="border border-gray-200 rounded-lg shadow-sm p-3 flex flex-col items-center bg-white">
                     <img
                       src={food.photo}
                       alt={food.name}
-                      width={130}
-                      height={150}
-                      className="rounded-lg p-2"
+                      width={120}
+                      height={120}
+                      className="rounded-lg object-cover aspect-square"
                     />
-                    <div className="w-full h-1" />
-                    <span className="text-lg md:text-sm sm:text:sm text-center text-black">
+                    <span className="mt-2 text-sm font-medium text-gray-700 text-center">
                       {food.name}
                     </span>
                   </div>
@@ -323,67 +307,67 @@ const Food = () => {
   return (
     <section
       id="food"
-      className="flex flex-col md:scroll-m-0 scroll-m-24 px-10 pt-40 gap-4 w-full min-h-screen items-center justify-center bg-white"
+      className=" md:py-28 w-full bg-white flex flex-col justify-center items-center"
     >
-      <h2 className="overflow-hidden text-center scroll-m-20 md:text-6xl text-3xl font-extrabold tracking-tight first:mt-0 items-start justify-center inline-block text-black bg-clip-text">
-        Alimentação
-      </h2>
-      <div className="w-full z-10 bg-lightBrown p-4 py-20 mx-10 flex flex-col gap-2 rounded-lg block-zoom">
-        <div className="flex flex-col gap-7">
-          <p>
-            As doenças cardiovasculares são a principal causa de morte no mundo
-            De acordo com a Organização Mundial da Saúde (OMS), as doenças
-            cardiovasculares são responsáveis por cerca de{" "}
-            <span className="font-bold text-red-700 text-xl">17,7 milhões</span>{" "}
-            de óbitos por ano.
-          </p>
-          <p>
-            A prevalência dos fatores de risco também traz estatísticas
-            preocupantes: Quase metade dos brasileiros adultos{" "}
-            <span className="font-bold text-red-700 text-xl">48%</span> terá
-            obesidade e mais{" "}
-            <span className="font-bold text-red-700 text-xl">27%</span>  terão
-            sobrepeso até 2044, conforme alerta um novo estudo apresentado no
-            Congresso Internacional sobre Obesidade (ICO) 2024.
-          </p>
-          <p>
-            Mudanças nos padrões de consumo alimentar são destacadas como uma
-            das principais causas de excesso de peso e ganho de peso
-            exponencial, considerando que as famílias deixaram de consumir
-            pratos típicos tradicionais e aumentaram a ingestão de alimentos
-            ultraprocessados e de baixa qualidade nutricional.
-          </p>
-          <p>
-            Com isso o ministério da saúde confeccionou um manual da alimentação
-            cardioprotetora, dividindo os alimentos em 4 grupos:{" "}
-          </p>
-          <div className="flex lg:flex-row md: w-1/2 flex-col gap-2 ">
-            <span className="text-green-700 bg-light shadow-md rounded-full p-2 mt-4">
-              Grupo Verde
-            </span>{" "}
-            <span className="text-yellow-600 bg-light shadow-md rounded-full p-2 mt-4">
-              Grupo Amarelo
-            </span>{" "}
-            <span className="text-blue-700 bg-light shadow-md rounded-full p-2 mt-4">
-              {" "}
-              Grupo Azul
-            </span>{" "}
-            <span className="text-red-700 bg-light shadow-md rounded-full p-2 mt-4">
-              Grupo Vermelho
-            </span>{" "}
+      <div className="w-[90%] lg:w-[80%] flex flex-col justify-center items-center">
+        <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-12">
+          Alimentação
+        </h2>
+
+        <div className="p-6 shadow-md md:p-8 rounded-xl border mb-16">
+          <div className="prose prose-gray max-w-none">
+            <p className="text-gray-700">
+              As doenças cardiovasculares são a principal causa de morte no
+              mundo. De acordo com a Organização Mundial da Saúde (OMS), as
+              doenças cardiovasculares são responsáveis por cerca de{" "}
+              <span className="font-semibold text-rose-600">17,7 milhões</span>{" "}
+              de óbitos por ano.
+            </p>
+            <p className="text-gray-700">
+              A prevalência dos fatores de risco também traz estatísticas
+              preocupantes: Quase metade dos brasileiros adultos{" "}
+              <span className="font-semibold text-rose-600">48%</span> terá
+              obesidade e mais{" "}
+              <span className="font-semibold text-rose-600">27%</span> terão
+              sobrepeso até 2044, conforme alerta um novo estudo apresentado no
+              Congresso Internacional sobre Obesidade (ICO) 2024.
+            </p>
+            <p className="text-gray-700">
+              Mudanças nos padrões de consumo alimentar são destacadas como uma
+              das principais causas de excesso de peso, considerando que as
+              famílias deixaram de consumir pratos típicos tradicionais e
+              aumentaram a ingestão de alimentos ultraprocessados.
+            </p>
+            <p className="text-gray-700">
+              O ministério da saúde confeccionou um manual da alimentação
+              cardioprotetora, dividindo os alimentos em 4 grupos:{" "}
+            </p>
+            <div className="flex flex-wrap gap-2 mt-4">
+              <span className="text-green-600 bg-green-50 px-4 py-2 rounded-full text-sm font-medium">
+                Grupo Verde
+              </span>
+              <span className="text-amber-600 bg-amber-50 px-4 py-2 rounded-full text-sm font-medium">
+                Grupo Amarelo
+              </span>
+              <span className="text-blue-600 bg-blue-50 px-4 py-2 rounded-full text-sm font-medium">
+                Grupo Azul
+              </span>
+              <span className="text-rose-600 bg-rose-50 px-4 py-2 rounded-full text-sm font-medium">
+                Grupo Vermelho
+              </span>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="flex flex-col gap-4 scroll-m-24 w-full min-h-screen items-center justify-center pb-40">
-        <div>
-          <h2 className="overflow-hidden text-center scroll-m-20 md:text-5xl text-4xl font-extrabold tracking-tight first:mt-0 bg-gray-500 items-start justify-start text-black bg-clip-text">
-            Grupos
+
+        <div className="w-full  pb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 pb-12">
+            Conheça os Grupos
           </h2>
-        </div>
-        <div className="flex flex-col justify-center snap-y snap-mandatory items-center gap-4">
-          {groups.map((group, index) => (
-            <GroupsCard key={index} alt={index % 2 == 0} {...group} />
-          ))}
+          <div className="space-y-16">
+            {groups.map((group, index) => (
+              <GroupsCard key={index} {...group} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

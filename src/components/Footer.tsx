@@ -1,57 +1,60 @@
+"use client";
+import Logo from "@/brand/logo.svg";
 import { navLinks } from "@/constants";
-import logo from "../assets/logo.svg";
-import instaLogo from "../assets/intagram.svg";
-import { Separator } from "./ui/separator";
+import { FaInstagram } from "react-icons/fa6";
 
-const Footer = () => {
+export default function Footer() {
   return (
-    <section
-      id="footer"
-      className="flex justify-center items-center md:px-32 px-5 flex-col sm:py-16 py-6 bg-white"
+    <footer
+      className={`w-full bg-white lg:h-[400px]
+       flex justify-center items-center`}
     >
-      <div className="flex justify-center items-start md:flex-row flex-col mb-8 w-full gap-5">
-        <div className="flex-1 flex flex-col md:justify-start justify-center mr-10 ml-9">
-          <img
-            src={logo}
-            alt="logo"
-            className="w-[266px] h-[72px] object-contain"
-          />
-          <p className="text-black font-normal md:text-start text-center text-[18px] leading-[30.8px] mt-4 max-w-[312px]">
-            Informando e conscientizando sobre os riscos das doenças
-            cardiovasculares
+      <div className="lg:w-[80%] w-[90%] justify-evenly flex flex-col lg:py-0 py-16">
+        <div className="flex lg:flex-row flex-col justify-between lg:items-center last:items-center lg:gap-0 gap-10 mb-10">
+          <div className="flex flex-col justify-center items-center">
+            <img
+              src={Logo}
+              alt="NevesJr Logo"
+              className="w-[266px] h-[72px] object-contain"
+            />
+            <p className=" text-black font-light text-xs">
+              Informando e conscientizando sobre os <br /> riscos das doenças
+              cardiovasculares
+            </p>
+          </div>
+          <div className="lg:hidden h-[1px] bg-gray1/50 w-full" />
+          <div className="flex flex-col lg:gap-1 gap-10">
+            <h1 className="font-bold text-red1">Links Rápidos</h1>
+            <div className="flex lg:flex-row flex-col lg:items-center items-start gap-10">
+              {navLinks.map((link) => (
+                <li
+                  key={link.id}
+                  className="font-normal text-[16px] leading-[24px] hover:text-red1 text-black list-none"
+                >
+                  {link.title}
+                </li>
+              ))}
+            </div>
+          </div>
+          <div className="lg:hidden h-[1px] bg-gray1/50 w-full" />
+        </div>
+        <div>
+          <p className="font-poppins font-normal text-center text-[18px] leading-[27px] text-black">
+            Copyright Ⓒ 2025 Cardio Performance. Todos os direitos reservados.
           </p>
-        </div>
-        <p>
-          {navLinks.map((link) => (
-            <li
-              key={link.id}
-              className="font-normal text-[16px] leading-[24px] hover:text-redVine text-black list-none"
-            >
-              {link.title}
-            </li>
-          ))}
-        </p>
-      </div>
-      <Separator className="w-[90%]" />
-      <div>
-        <p className="font-poppins font-normal text-center text-[18px] leading-[27px] text-black">
-          Copyright Ⓒ 2024 Cardio Performance. Todos os direitos reservados.
-        </p>
-        <div className="flex items-center justify-center md:mt-0 mt-6">
-          <img
-            src={instaLogo}
-            alt="intagram link"
-            className="w-[21px] h-[21px] object-contain cursor-pointer"
-            onClick={() =>
-              window.open(
-                "https://www.instagram.com/cardioperformance?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-              )
-            }
-          />
+          <div className="flex items-center justify-center md:mt-0 mt-6">
+            <FaInstagram
+              size={25}
+              color="black"
+              onClick={() =>
+                window.open(
+                  "https://www.instagram.com/cardioperformance?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                )
+              }
+            />
+          </div>
         </div>
       </div>
-    </section>
+    </footer>
   );
-};
-
-export default Footer;
+}
